@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Dita!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Comic+Neue:wght@700&family=Indie+Flower&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="Interactive birthday card painting experience for Dita! Paint, play, and enjoy a surprise." />
+    <meta name="author" content="Maldination" />
+  </head>
+  <body>
+    <!-- Canvas Loader -->
+    <div class="loader">
+      <div class="paint-loader"></div>
+      <p>Still Cooking laa wait a minute...</p>
+    </div>
+
+    <!-- Section 1: Interactive Painting Game -->
+    <section id="painting-game" class="active-section">
+      <div class="gallery-frame">
+        <h1>Hi Dita, How are you doing today?. I need to tell you something, here you go</h1>
+        <p class="subtitle">Paint something wonderful to reveal your surprise!</p>
+
+        <div class="painting-container">
+          <canvas id="birthday-canvas"></canvas>
+          <div class="painting-controls">
+            <div class="color-palette">
+              <div class="color-swatch active" data-color="#FF6B6B" style="background-color: #ff6b6b"></div>
+              <div class="color-swatch" data-color="#4ECDC4" style="background-color: #4ecdc4"></div>
+              <div class="color-swatch" data-color="#FFE66D" style="background-color: #ffe66d"></div>
+              <div class="color-swatch" data-color="#A78BFA" style="background-color: #a78bfa"></div>
+              <div class="color-swatch" data-color="#F8A5C2" style="background-color: #f8a5c2"></div>
+            </div>
+            <button id="clear-btn">Start Over</button>
+          </div>
+        </div>
+
+        <button id="reveal-btn" class="disabled">Reveal</button>
+      </div>
+    </section>
+
+    <!-- Section 2: Birthday Card Reveal -->
+    <section id="card-reveal">
+      <div class="gallery-frame golden-frame">
+        <div class="card-content">
+          <h2 class="handwritten">Happy Birthday!</h2>
+          <div class="watercolor-bloom"></div>
+          <p class="message">Your creativity has unlocked this special wish...</p>
+          <div class="personalized-message">
+            <!-- Dynamic content will be inserted here -->
+          </div>
+        </div>
+      </div>
+      <button id="final-surprise-btn">See the Surprise!</button>
+    </section>
+
+    <!-- Section 3: Final Surprise -->
+    <section id="final-surprise">
+      <div class="gallery-frame wide-frame">
+        <h2 class="handwritten">Your Birthday Portrait LMAO!</h2>
+        <div class="portrait-container">
+          <div class="animated-portrait" id="birthday-portrait">
+            <div class="silly-hat"></div>
+            <div class="googly-eye left-eye">
+              <div class="googly-pupil"></div>
+            </div>
+            <div class="googly-eye right-eye">
+              <div class="googly-pupil"></div>
+            </div>
+            <div class="mustache" title="Click me!"></div>
+            <div class="interactive-area" id="portrait-interaction"></div>
+          </div>
+        </div>
+        <div class="balloon-container" id="balloon-container"></div>
+        <div class="confetti-container"></div>
+        <audio id="birthday-music" loop>
+          <source src="happy-birthday-indian.mp3" type="audio/mpeg" />
+        </audio>
+        <button id="release-balloons">Release Balloons!</button>
+      </div>
+      <button id="restart-btn">Create Another?</button>
+    </section>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

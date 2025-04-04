@@ -1,0 +1,470 @@
+/* Base Styles */
+body {
+  font-family: "Playfair Display", serif;
+  background-color: #fff9f0;
+  color: #5a4a42;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Gallery Frame Styles */
+.gallery-frame {
+  background: white;
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 800px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border: 15px solid #f5e6d8;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+}
+
+.golden-frame {
+  border: 20px solid #e8c872;
+  background: #fffdf9;
+  background-image: url("https://www.transparenttextures.com/patterns/light-paper-fibers.png");
+}
+
+.wide-frame {
+  max-width: 900px;
+}
+
+/* Painting Game Section */
+#painting-game {
+  text-align: center;
+}
+
+.painting-container {
+  margin: 20px 0;
+  position: relative;
+}
+
+#birthday-canvas {
+  border: 2px dashed #d1c7b7;
+  background-color: #fffdf7;
+  cursor: url("brush-cursor.png"), crosshair;
+  width: 100%;
+  max-width: 700px;
+  height: 400px;
+  touch-action: none;
+  background-image: url("https://www.transparenttextures.com/patterns/notebook.png");
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.color-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.color-swatch.active {
+  border-color: #5a4a42;
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px white, 0 0 0 5px #5a4a42;
+}
+
+/* Card Reveal Section */
+#card-reveal {
+  display: none;
+  text-align: center;
+}
+
+.handwritten {
+  font-family: "Indie Flower", cursive;
+  font-size: 3.5rem;
+  color: #d4a76a;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.watercolor-bloom {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 0, 89, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
+  margin: 20px auto;
+  border-radius: 50%;
+  animation: bloom 3s infinite alternate;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.message {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+.signature {
+  font-family: "Comic Neue", cursive;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #a78bfa;
+  margin-top: 30px;
+}
+
+/* Final Surprise Section */
+/* Enhanced Final Surprise Section */
+#final-surprise {
+  display: none;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.portrait-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.animated-portrait {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  background: #f8d5b8;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 10px solid #e8c872;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.face-part {
+  position: absolute;
+  transition: all 0.3s;
+}
+
+.silly-hat {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  top: -70px;
+  left: 50px;
+  background-image: url("https://i.imgur.com/JQJQJQJ.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 10;
+  animation: wobble 2s infinite;
+  transform-origin: center bottom;
+}
+
+.googly-eye {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  border: 3px solid #333;
+  overflow: hidden;
+}
+
+.left-eye {
+  top: 100px;
+  left: 80px;
+}
+
+.right-eye {
+  top: 100px;
+  left: 180px;
+}
+
+.googly-pupil {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #333;
+  border-radius: 50%;
+  top: 12px;
+  left: 12px;
+  transition: all 0.1s;
+}
+
+.mustache {
+  position: absolute;
+  width: 120px;
+  height: 50px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40"><path d="M10,20 Q50,0 90,20 Q50,40 10,20" fill="black"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 170px;
+  left: 90px;
+  animation: dance 3s infinite;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.party-horn {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,80 L50,50 Q70,60 80,40 L90,30 L80,60 Q70,80 50,70 Z" fill="red"/><circle cx="90" cy="30" r="10" fill="yellow"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: -30px;
+  right: 30px;
+  animation: wobble 1s infinite;
+  transform-origin: bottom left;
+  z-index: 5;
+}
+
+.balloon {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 20;
+  animation: float-up 4s ease-in forwards;
+  transform-origin: bottom center;
+}
+
+.balloon-string {
+  position: absolute;
+  width: 2px;
+  background: #888;
+  left: 50%;
+  bottom: -20px;
+}
+
+.balloon-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.interactive-area {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  z-index: 15;
+}
+
+/* New Animations */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes inflate {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Buttons */
+button {
+  background-color: #d4a76a;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 20px;
+  font-family: "Playfair Display", serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background-color: #c1914f;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+button:hover:after {
+  animation: button-shine 1.5s;
+}
+
+button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Animations */
+@keyframes bloom {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1000px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes button-shine {
+  0% {
+    transform: rotate(45deg) translate(-30%, -30%);
+  }
+  100% {
+    transform: rotate(45deg) translate(30%, 30%);
+  }
+}
+
+@keyframes dance {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05, 0.95);
+  }
+  50% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.03, 0.97);
+  }
+}
+
+/* Loader */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff9f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.paint-loader {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #f8a5c2;
+  border-top-color: #4ecdc4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery-frame {
+    margin: 20px 10px;
+    padding: 15px;
+    border-width: 10px;
+  }
+
+  #birthday-canvas {
+    height: 300px;
+  }
+
+  .handwritten {
+    font-size: 2.5rem;
+  }
+
+  .animated-portrait {
+    width: 250px;
+    height: 250px;
+  }
+}
