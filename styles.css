@@ -216,19 +216,6 @@ body {
   cursor: pointer;
 }
 
-.party-horn {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,80 L50,50 Q70,60 80,40 L90,30 L80,60 Q70,80 50,70 Z" fill="red"/><circle cx="90" cy="30" r="10" fill="yellow"/></svg>');
-  background-size: contain;
-  background-repeat: no-repeat;
-  bottom: -30px;
-  right: 30px;
-  animation: wobble 1s infinite;
-  transform-origin: bottom left;
-  z-index: 5;
-}
 
 .balloon {
   position: absolute;
