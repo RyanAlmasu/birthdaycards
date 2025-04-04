@@ -44,7 +44,7 @@ body {
 #birthday-canvas {
   border: 2px dashed #d1c7b7;
   background-color: #fffdf7;
-  cursor: url("brush-cursor.png"), crosshair;
+  cursor: url("https://cdn2.iconfinder.com/data/icons/cursors-soft-fill/60/Paint-Brush-cursor-clicker-mouse-art-artistic-512.png"), crosshair;
   width: 100%;
   max-width: 700px;
   height: 400px;
@@ -163,7 +163,7 @@ body {
   height: 150px;
   top: -70px;
   left: 50px;
-  background-image: url("");
+  /* background-image: url(""); */
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 10;
