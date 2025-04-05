@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const randomMessage = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
     document.querySelector(".personalized-message").innerHTML = `
                     <p>${randomMessage}</p>
-                    <p>Wishing you a day full of laughter, bright smiles, and good vibes all around. Don’t forget to keep moving forward and stay as wonderfully happy as you always are!</p>
+                    <p>Wishing you a beautiful day filled with laughter that uplifts your spirit, smiles that warm your heart, and positive energy that follows you wherever you go. May your health thrive in every way — body, mind, and soul — and may peace find you even in life’s busiest moments. May your career flourish with purpose, progress, and passion, and may exciting opportunities unfold with perfect timing. May financial abundance flow effortlessly into your life, supporting your dreams and bringing you freedom and comfort. May love surround you, kindness guide you, and inner strength carry you through every challenge. Keep believing in yourself, keep moving forward, and never forget how capable, worthy, and extraordinary you truly are — the world is brighter because you're in it.</p>
                     <p class="signature">- Your Biggest Fan</p>
                 `;
 
