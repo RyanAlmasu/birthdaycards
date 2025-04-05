@@ -121,8 +121,6 @@ body {
   margin-top: 30px;
 }
 
-/* Final Surprise Section */
-/* Enhanced Final Surprise Section */
 #final-surprise {
   display: none;
   text-align: center;
@@ -216,7 +214,6 @@ body {
   cursor: pointer;
 }
 
-
 .balloon {
   position: absolute;
   width: 60px;
@@ -254,8 +251,6 @@ body {
   cursor: pointer;
   z-index: 15;
 }
-
-/* New Animations */
 @keyframes float-up {
   0% {
     transform: translateY(0) rotate(0deg);
@@ -285,7 +280,6 @@ body {
   }
 }
 
-/* Buttons */
 button {
   background-color: #d4a76a;
   color: white;

@@ -1,20 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Hide loader after 2 seconds
   setTimeout(() => {
     document.querySelector(".loader").style.display = "none";
   }, 2000);
 
-  // Painting Game Setup
   const canvas = document.getElementById("birthday-canvas");
   const ctx = canvas.getContext("2d");
   let isDrawing = false;
   let currentColor = "#FF6B6B";
 
-  // Set canvas size
   function resizeCanvas() {
     const containerWidth = canvas.parentElement.clientWidth;
     canvas.width = containerWidth;
-    canvas.height = containerWidth * 0.6; // Maintain aspect ratio
+    canvas.height = containerWidth * 0.6;
     ctx.fillStyle = "#FFFDF7";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
@@ -22,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
 
-  // Drawing functionality
   canvas.addEventListener("mousedown", startDrawing);
   canvas.addEventListener("touchstart", startDrawing);
   canvas.addEventListener("mousemove", draw);
@@ -39,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function draw(e) {
     if (!isDrawing) return;
 
-    // Get position
     let x, y;
     if (e.type.includes("touch")) {
       const rect = canvas.getBoundingClientRect();
@@ -50,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
       y = e.offsetY;
     }
 
-    // Draw
     ctx.globalCompositeOperation = "source-over";
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
@@ -69,8 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ctx.lastX = x;
     ctx.lastY = y;
-
-    // Enable reveal button after some drawing
     if (document.getElementById("reveal-btn").classList.contains("disabled")) {
       document.getElementById("reveal-btn").classList.remove("disabled");
     }
@@ -82,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ctx.lastY = undefined;
   }
 
-  // Color selection
   document.querySelectorAll(".color-swatch").forEach((swatch) => {
     swatch.addEventListener("click", function () {
       currentColor = this.getAttribute("data-color");
@@ -91,106 +82,76 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Clear canvas
   document.getElementById("clear-btn").addEventListener("click", function () {
     ctx.fillStyle = "#FFFDF7";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     document.getElementById("reveal-btn").classList.add("disabled");
   });
 
-  // Reveal card
   document.getElementById("reveal-btn").addEventListener("click", function () {
     if (this.classList.contains("disabled")) return;
 
     document.getElementById("painting-game").classList.remove("active-section");
     document.getElementById("card-reveal").style.display = "block";
 
-    // Add personalized message
     const funnyMessages = [
       "You're not getting older, you're just becoming a classic!",
-      "Age is merely the number of years the world has been enjoying you!",
-      "You're not aging, you're just increasing in value!",
-      "Birthdays are nature's way of telling us to eat more cake!",
-      "Don't count the candles, just enjoy the glow!",
     ];
     const randomMessage = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
     document.querySelector(".personalized-message").innerHTML = `
                     <p>${randomMessage}</p>
-                    <p>May your day be filled with laughter, smile, cake, zero adult responsibilities and dont forget to keep moving and be happy as always!</p>
+                    <p>Wishing you a day full of laughter, bright smiles, and good vibes all around. Don’t forget to keep moving forward and stay as wonderfully happy as you always are!</p>
                     <p class="signature">- Your Biggest Fan</p>
                 `;
 
-    // Animate card reveal
     setTimeout(() => {
       document.querySelector(".watercolor-bloom").style.opacity = "1";
     }, 500);
   });
 
   // Final surprise
-  // Enhanced Final Surprise
   document.getElementById("final-surprise-btn").addEventListener("click", function () {
     document.getElementById("card-reveal").style.display = "none";
     document.getElementById("final-surprise").style.display = "block";
 
-    // Create confetti
     createConfetti();
 
-    // Play music
     const music = document.getElementById("birthday-music");
     music.volume = 0.3;
     music.play();
 
-    // Animate googly eyes
     animateGooglyEyes();
-
-    // Set up interactive portrait
     setupInteractivePortrait();
   });
-
-  // Balloon colors
   const balloonColors = ["#FF6B6B", "#FF9E7D", "#FFD166", "#06D6A0", "#118AB2", "#073B4C", "#7209B7", "#F72585"];
-
-  // Create balloons
   function createBalloon() {
     const container = document.getElementById("balloon-container");
     const balloon = document.createElement("div");
     balloon.className = "balloon";
-
     const color = balloonColors[Math.floor(Math.random() * balloonColors.length)];
     const size = Math.random() * 30 + 50;
     const left = Math.random() * 100;
     const delay = Math.random() * 2;
     const rotation = (Math.random() - 0.5) * 30;
-
     balloon.style.backgroundColor = color;
     balloon.style.width = `${size}px`;
     balloon.style.height = `${size * 1.5}px`;
     balloon.style.left = `${left}%`;
     balloon.style.animationDelay = `${delay}s`;
     balloon.style.transform = `rotate(${rotation}deg)`;
-
-    // Add string
     const string = document.createElement("div");
     string.className = "balloon-string";
     string.style.height = `${size * 0.5}px`;
     balloon.appendChild(string);
-
     container.appendChild(balloon);
-
-    // Remove balloon after animation
     setTimeout(() => {
       balloon.remove();
     }, 4000);
   }
-
-  // Release balloons
   document.getElementById("release-balloons").addEventListener("click", function () {
-    // Create multiple balloons
     for (let i = 0; i < 15; i++) {
       setTimeout(createBalloon, i * 200);
     }
-
-    // Make portrait celebrate
     const portrait = document.getElementById("birthday-portrait");
     portrait.style.animation = "spin 1s ease";
     setTimeout(() => {
@@ -198,26 +159,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1000);
   });
 
-  // Interactive portrait
   function setupInteractivePortrait() {
     const mustache = document.querySelector(".mustache");
     const portrait = document.getElementById("birthday-portrait");
     const interactiveArea = document.getElementById("portrait-interaction");
-
-    // Make mustache grow on click
     mustache.addEventListener("click", function () {
       this.style.transform = "scale(1.5)";
       this.style.transition = "transform 0.3s";
-
-      // Create little hearts
       createHearts();
-
       setTimeout(() => {
         this.style.transform = "scale(1)";
       }, 1000);
     });
 
-    // Make portrait tilt on mouse move
     interactiveArea.addEventListener("mousemove", function (e) {
       const rect = portrait.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
@@ -234,7 +188,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Create little hearts animation
   function createHearts() {
     const container = document.getElementById("balloon-container");
 
@@ -257,22 +210,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Restart experience
   document.getElementById("restart-btn").addEventListener("click", function () {
     document.getElementById("final-surprise").style.display = "none";
     document.getElementById("painting-game").classList.add("active-section");
-
-    // Clear canvas
     ctx.fillStyle = "#FFFDF7";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     document.getElementById("reveal-btn").classList.add("disabled");
-
-    // Stop music
     document.getElementById("birthday-music").pause();
     document.getElementById("birthday-music").currentTime = 0;
   });
 
-  // Confetti function
   function createConfetti() {
     const container = document.querySelector(".confetti-container");
     container.innerHTML = "";
@@ -283,8 +230,6 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < 50; i++) {
       const confetti = document.createElement("div");
       confetti.className = "confetti";
-
-      // Random properties
       const color = colors[Math.floor(Math.random() * colors.length)];
       const emoji = emojis[Math.floor(Math.random() * emojis.length)];
       const size = Math.random() * 20 + 15;
@@ -304,8 +249,6 @@ document.addEventListener("DOMContentLoaded", function () {
       container.appendChild(confetti);
     }
   }
-
-  // Googly eyes animation
   function animateGooglyEyes() {
     const pupils = document.querySelectorAll(".googly-pupil");
     const portrait = document.querySelector(".animated-portrait");
@@ -330,8 +273,6 @@ document.addEventListener("DOMContentLoaded", function () {
         pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
       });
     });
-
-    // Make eyes wobble occasionally
     setInterval(() => {
       if (Math.random() > 0.7) {
         pupils.forEach((pupil) => {
@@ -346,7 +287,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
   }
 
-  // Make the mustache grow on hover
   const mustache = document.querySelector(".mustache");
   if (mustache) {
     mustache.addEventListener("mouseenter", function () {

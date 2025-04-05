@@ -11,16 +11,13 @@
     <meta name="author" content="Maldination" />
   </head>
   <body>
-    <!-- Canvas Loader -->
     <div class="loader">
       <div class="paint-loader"></div>
       <p>Still Cooking laa wait a minute...</p>
     </div>
-
-    <!-- Section 1: Interactive Painting Game -->
     <section id="painting-game" class="active-section">
       <div class="gallery-frame">
-        <h1>Hi Dita, How are you doing today?. I need to tell you something, here you go</h1>
+        <h1>Hey Dita! How’s your day going? I’ve got something I want to share with you—here it is</h1>
         <p class="subtitle">Paint something wonderful to reveal your surprise!</p>
 
         <div class="painting-container">
@@ -40,26 +37,22 @@
         <button id="reveal-btn" class="disabled">Reveal</button>
       </div>
     </section>
-
-    <!-- Section 2: Birthday Card Reveal -->
     <section id="card-reveal">
       <div class="gallery-frame golden-frame">
         <div class="card-content">
           <h2 class="handwritten">Happy Birthday!</h2>
           <div class="watercolor-bloom"></div>
           <p class="message">Your creativity has unlocked this special wish...</p>
-          <div class="personalized-message">
-            <!-- Dynamic content will be inserted here -->
-          </div>
+          <div class="personalized-message"></div>
         </div>
       </div>
       <button id="final-surprise-btn">See the Surprise!</button>
     </section>
-
-    <!-- Section 3: Final Surprise -->
     <section id="final-surprise">
       <div class="gallery-frame wide-frame">
-        <h2 class="handwritten">Your Birthday Portrait LMAO!</h2>
+        <button id="release-balloons">Release Balloons!</button>
+        <h2 class="handwritten">This belongs in a museum</h2>
+
         <div class="portrait-container">
           <div class="animated-portrait" id="birthday-portrait">
             <div class="googly-eye left-eye">
@@ -74,12 +67,12 @@
         </div>
         <div class="balloon-container" id="balloon-container"></div>
         <div class="confetti-container"></div>
+
         <audio id="birthday-music" loop>
           <source src="happy-birthday-indian.mp3" type="audio/mpeg" />
         </audio>
-        <button id="release-balloons">Release Balloons!</button>
       </div>
-      <button id="restart-btn">Create Another?</button>
+      <button id="restart-btn">Play Again?</button>
     </section>
 
     <script src="scripts.js"></script>
